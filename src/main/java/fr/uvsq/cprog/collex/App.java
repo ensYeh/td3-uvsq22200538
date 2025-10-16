@@ -1,13 +1,16 @@
 package fr.uvsq.cprog.collex;
 
 /**
- * Hello world!
  *
+ * @author 22200538jeveuyx
+ * @version oct. 2025
  */
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        AdresseIP adr = new AdresseIP(192,168,2,12);
+        System.out.println(adr);
+
     }
 }
