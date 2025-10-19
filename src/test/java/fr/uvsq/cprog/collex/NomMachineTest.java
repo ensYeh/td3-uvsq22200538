@@ -48,4 +48,20 @@ public class NomMachineTest {
                 });
     }
 
+    @Test
+    public void nullThrowsError() {
+        assertThrows(IllegalArgumentException.class,
+                () -> {
+                    new NomMachine(null);
+                });
+    }
+
+    @Test
+    public void emptyNameThrowsError() {
+        assertThrows(IllegalArgumentException.class,
+                () -> {
+                    new NomMachine("..");
+                });
+    }
+
 }
