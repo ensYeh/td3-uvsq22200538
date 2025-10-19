@@ -72,6 +72,16 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.4.1</version>
         </plugin>
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-checkstyle-plugin</artifactId>
+              <version>3.6.0</version>
+              <configuration>
+                  <configLocation>google_checks.xml</configLocation>
+                  <failsOnError>true</failsOnError>
+                  <consoleOutput>true</consoleOutput>
+              </configuration>
+          </plugin>
       </plugins>
     </pluginManagement>
   </build>

@@ -18,7 +18,7 @@ public class AdresseIP {
         this.o3 = octet3;
         this.o4 = octet4;
     }
-    
+
 
     @Override
     public String toString() {

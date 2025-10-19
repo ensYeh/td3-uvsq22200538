@@ -5,7 +5,7 @@ package fr.uvsq.cprog.collex;
  * @author 22200538jeveuyx
  * @version oct. 2025
  */
-public class App 
+public class App
 {
     public static void main( String[] args )
     {
