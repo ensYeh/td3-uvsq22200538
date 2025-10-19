@@ -8,4 +8,35 @@ package fr.uvsq.cprog.collex;
  */
 
 public class NomMachine {
+
+    String nom;
+
+    NomMachine(String nom) {
+        if (nom == null || !isValidNomMachine(nom)) {
+            throw new IllegalArgumentException(nom + " n'est pas un nom de machine valide.");
+        }
+        this.nom = nom.toLowerCase();
+    }
+
+    private boolean isValidNomMachine(String nom) {
+        try {
+            String[] parsed = nom.split("\\.");
+            if (parsed.length != 3) {
+                return false;
+            }
+            for (String subStr : parsed) {
+                if (!subStr.matches("[a-zA-Z]+")) {
+                    return false;
+                }
+            }
+        } catch(Exception e) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return this.nom;
+    }
 }
