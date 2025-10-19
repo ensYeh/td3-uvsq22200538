@@ -1,27 +1,43 @@
 package fr.uvsq.cprog.collex;
 
+/**
+ * AdresseIP
+ *
+ * @author uvsq22200538
+ * @version oct. 2025
+ */
+
 public class AdresseIP {
 
-    int o1;
-    int o2;
-    int o3;
-    int o4;
+    String adresseIP;
 
-    AdresseIP(int octet1, int octet2, int octet3, int octet4) {
-        for (int o : new int[]{octet1, octet2, octet3, octet4}) {
-            if (o < 0 || o > 255) {
-                throw new IllegalArgumentException("Un octet doit avoir une valeur comprise entre 0 et 255");
-            }
+    AdresseIP(String adresseIP) {
+        if (adresseIP == null || !isValidIP(adresseIP)) {
+            throw new IllegalArgumentException(adresseIP + " n'est pas une adresse IP valide.");
         }
-        this.o1 = octet1;
-        this.o2 = octet2;
-        this.o3 = octet3;
-        this.o4 = octet4;
+        this.adresseIP = adresseIP;
     }
 
+    private boolean isValidIP(String adresseIP) {
+        String[] parsed = adresseIP.split("\\.");
+        if (parsed.length != 4) {
+            return false;
+        }
+        for (String strNumber : parsed) {
+            try {
+                int number = Integer.parseInt(strNumber);
+                if (number > 255 || number < 0) {
+                    return false;
+                }
+            } catch(Exception e) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     @Override
     public String toString() {
-        return String.format("%d.%d.%d.%d", this.o1, this.o2, this.o3, this.o4);
+        return this.adresseIP;
     }
 }
