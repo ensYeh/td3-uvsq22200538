@@ -20,7 +20,7 @@ public class NomMachine {
         this.domaine = nom.substring(nom.indexOf('.')+1);
     }
 
-    private boolean isValidNomMachine(String nom) {
+    public static boolean isValidNomMachine(String nom) {
         try {
             String[] parsed = nom.split("\\.");
             if (parsed.length != 3) {

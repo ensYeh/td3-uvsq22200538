@@ -82,6 +82,7 @@ public class Dns {
 
     public void addItem(String nomMachine, String adresseIP) throws IllegalArgumentException{
         for (DnsItem item : this.items) {
+            // On vérifie si on n'a pas de doublons
             if (item.nom.nom.equals(nomMachine) || item.ip.adresseIP.equals(adresseIP)) {
                 throw new IllegalArgumentException("Ces valeurs sont déjà présentes dans la base de données");
             }

@@ -20,7 +20,7 @@ public class AdresseIP {
         this.adresseIP = adresseIP;
     }
 
-    private boolean isValidIP(String adresseIP) {
+    public static boolean isValidIP(String adresseIP) {
         String[] parsed = adresseIP.split("\\.");
         if (parsed.length != 4) {
             return false;
