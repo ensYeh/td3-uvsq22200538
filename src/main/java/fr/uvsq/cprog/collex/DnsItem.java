@@ -17,4 +17,9 @@ public class DnsItem {
         this.ip = new AdresseIP(ip);
 
     }
+
+    @Override
+    public String toString() {
+        return this.nom + " " + this.ip;
+    }
 }
