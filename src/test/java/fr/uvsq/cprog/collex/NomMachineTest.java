@@ -19,6 +19,12 @@ public class NomMachineTest {
     }
 
     @Test
+    public void testNomDomaine() {
+        NomMachine nom = new NomMachine("ecampus.uvsq.fr");
+        assertEquals("uvsq.fr", nom.domaine);
+    }
+
+    @Test
     public void testIgnoreCase() {
         NomMachine nom = new NomMachine("EcAmpUs.UVSQ.fR");
         assertEquals("ecampus.uvsq.fr", nom.toString());
