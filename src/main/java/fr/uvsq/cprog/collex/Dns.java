@@ -21,6 +21,12 @@ public class Dns {
     }
 
     public void loadFile(String filePath) throws IOException {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.dnsFilePath, true))) {
+            writer.write("");
+        } catch (IOException e) {
+            System.out.println("Erreur");
+        }
+
         BufferedReader reader = new BufferedReader(new FileReader(filePath));
         String line;
         while ((line = reader.readLine()) != null){
