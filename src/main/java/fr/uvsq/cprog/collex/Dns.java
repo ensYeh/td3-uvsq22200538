@@ -52,6 +52,24 @@ public class Dns {
 
     }
 
+    public DnsItem getItem(AdresseIP ip) throws IllegalArgumentException {
+        for (DnsItem item : this.items) {
+            if (item.ip.adresseIP.equals(ip.adresseIP)) {
+                return item;
+            }
+        }
+        throw new IllegalArgumentException(ip.adresseIP + " n'existe pas dans la base de données");
+    }
+
+    public DnsItem getItem(NomMachine nom) throws IllegalArgumentException {
+        for (DnsItem item : this.items) {
+            if (item.nom.nom.equals(nom.nom)) {
+                return item;
+            }
+        }
+        throw new IllegalArgumentException(nom.nom + " n'existe pas dans la base de données");
+    }
+
     public static void main(String[] args) throws IOException {
         Dns dns = new Dns();
         for (DnsItem item : dns.items) {
@@ -60,4 +78,6 @@ public class Dns {
         DnsItem i = new DnsItem("www.google.com", "222.111.83.23");
         dns.writeDnsItemToTxt(i);
     }
+
+
 }
