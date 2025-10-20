@@ -70,6 +70,16 @@ public class Dns {
         throw new IllegalArgumentException(nom.nom + " n'existe pas dans la base de données");
     }
 
+    public ArrayList<DnsItem> getItems(String nomDomaine) {
+        ArrayList<DnsItem> res = new ArrayList<DnsItem>();
+        for (DnsItem item : this.items) {
+            if (item.nom.nom.substring(item.nom.nom.indexOf(".") +1).equals(nomDomaine)) {
+                res.add(item);
+            }
+        }
+        return res;
+    }
+
     public static void main(String[] args) throws IOException {
         Dns dns = new Dns();
         for (DnsItem item : dns.items) {
