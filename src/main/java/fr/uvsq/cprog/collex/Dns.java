@@ -80,6 +80,17 @@ public class Dns {
         return res;
     }
 
+    public void addItem(String nomMachine, String adresseIP) throws IllegalArgumentException{
+        for (DnsItem item : this.items) {
+            if (item.nom.nom.equals(nomMachine) || item.ip.adresseIP.equals(adresseIP)) {
+                throw new IllegalArgumentException("Ces valeurs sont déjà présentes dans la base de données");
+            }
+        }
+        DnsItem newDns = new DnsItem(nomMachine, adresseIP);
+        this.items.add(newDns);
+        this.writeDnsItemToTxt(newDns);
+    }
+
     public static void main(String[] args) throws IOException {
         Dns dns = new Dns();
         for (DnsItem item : dns.items) {
